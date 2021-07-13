@@ -1,2 +1,21 @@
-<h1>Stories#index</h1>
-<p>Find me in app/views/stories/index.html.erb</p>
+        <% if author_signed_in? %>
+          <%= form_with model:@stories, url:stories_path, method: :post, local:true do |f| %>
+              <div>
+                <p>もしも、 <%= f.text_field :title_1 %> が <%= f.text_field :title_2 %> だったら</p>
+                <%= f.submit 'リレーを始める', class: 'btn btn-secondary' %>
+              </div>
+          <% end %>
+        <% end %>
+        <br>
+        <br>
+        <% @stories.each do |story| %>
+            <p>
+            <h3>もしも、<%= story.title_1 %> が <%= story.title_2 %> だったら？</h3>
+            <br>
+            <%= link_to "参加する／読む", story_path(story.id), class: 'btn btn-secondary' %>
+            </p>
+        <br>
+        <br>
+        <% end %>
+
+        <%= paginate @stories %>

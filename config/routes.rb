@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   devise_for :authors
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'homes#top'
+  root to: 'stories#index'
 
-  resources :stories, only: [:new, :create, :index, :show]
-  resources :sentences, only: [:new, :create, :index, :show]
+  #resources :stories, only: [:new, :create, :index, :show]
+  delete 'stories/destroy'
+  #post 'stories' => 'stories#create'
 
-  post 'favorites/create'
-  delete 'favorites/destroy'
+  resources :stories, only: [:new, :create, :index, :show] do
+    resource :favorites, only: [:create, :destroy]
+    resources :sentences, only: [:create, :destroy]
+  end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_06_141357) do
+ActiveRecord::Schema.define(version: 2021_07_11_084754) do
 
   create_table "authors", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,11 +33,20 @@ ActiveRecord::Schema.define(version: 2021_07_06_141357) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "stories", force: :cascade do |t|
-    t.string "title"
-    t.text "sentence"
+  create_table "sentences", force: :cascade do |t|
+    t.text "article"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "story_id"
+    t.integer "author_id"
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.string "title_1"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title_2"
+    t.integer "author_id"
   end
 
 end

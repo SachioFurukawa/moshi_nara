@@ -1,1 +1,7 @@
-<h1>top page</h1>
+ <% @story.each do |story| %>
+  <p>
+    <%= link_to story_path(story.id) do %>
+      もしも、<%= story.title_1 %> が <%= story.title_2 %> だったら？
+    <% end %>
+  </p>
+<% end %>

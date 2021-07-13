@@ -1,2 +1,30 @@
-<h1>Stories#show</h1>
-<p>Find me in app/views/stories/show.html.erb</p>
+            <h3>
+              もしも、<%= @story.title_1 %> が <%= @story.title_2 %> だったら？
+            </h3>
+            <br>
+            <p>完結までの投稿数：残り<%= @odd %></p>
+            <br>
+            <% @sentences.each do |sentence| %>
+              <p class="p-3 mb-2 bg-dark text-white text-left">
+                <%=safe_join(sentence.article.split("\n"),tag(:br))%>
+              </p>
+            <% end %>
+            <br>
+            <br>
+            <% if author_signed_in? && @odd > 0%>
+              <%= form_with(model:[@story, @sentence], method: :post) do |f| %>
+                <div>
+                  <p><%= f.text_area :article, size: "60x10" %></p>
+                  <%= f.hidden_field :story_id, value: @story.id %>
+                  <%= f.submit '投稿する' %>
+                </div>
+              <% end %>
+              <% if @odd == 1 %>
+                <br>
+                <div class="text-danger">あなたが最後の書き手です！</div>
+                <div>良い感じに完結させてください</div>
+              <% end %>
+            <% end %>
+
+            <br>
+            <br>
