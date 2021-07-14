@@ -14,7 +14,6 @@ class StoriesController < ApplicationController
     @sentences = @story.sentences
     @sentence = Sentence.new
     @odd = 20-@story.sentences.count
-    @favorite = Favorite.new
   end
 
   def new
@@ -28,7 +27,7 @@ class StoriesController < ApplicationController
   private
 
   def story_params
-    params.require(:story).permit(:title_1, :title_2)
+    params.require(:story).permit(:title_1, :title_2, :author_id)
   end
 
 end

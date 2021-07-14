@@ -16,3 +16,8 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap');
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+}

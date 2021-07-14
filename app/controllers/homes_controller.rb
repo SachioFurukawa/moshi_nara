@@ -4,4 +4,7 @@ class HomesController < ApplicationController
     @story = Story.all
   end
 
+  def about
+  end
+
 end

@@ -1,7 +1,7 @@
         <% if author_signed_in? %>
           <%= form_with model:@stories, url:stories_path, method: :post, local:true do |f| %>
               <div>
-                <p>もしも、 <%= f.text_field :title_1 %> が <%= f.text_field :title_2 %> だったら</p>
+                <p>もしも、 <%= f.text_field :title_1 %> が <%= f.text_field :title_2 %> だったら？</p>
                 <%= f.submit 'リレーを始める', class: 'btn btn-secondary' %>
               </div>
           <% end %>

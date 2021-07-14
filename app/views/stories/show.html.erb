@@ -11,7 +11,8 @@
             <% end %>
             <br>
             <br>
-            <% if author_signed_in? && @odd > 0%>
+
+            <% if author_signed_in? && @odd > 0 %>
               <%= form_with(model:[@story, @sentence], method: :post) do |f| %>
                 <div>
                   <p><%= f.text_area :article, size: "60x10" %></p>

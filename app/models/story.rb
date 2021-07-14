@@ -1,6 +1,5 @@
 class Story < ApplicationRecord
 
-  #MAX_SENTENCES_LENGTH = 5
 
   belongs_to :author
   has_many :sentences, dependent: :destroy
@@ -12,7 +11,5 @@ class Story < ApplicationRecord
 
   validates :title_1, presence: true
   validates :title_2, presence: true
-
-  #validates :sentences, length: {maximum: MAX_SENTENCES_LENGTH}
 
 end
